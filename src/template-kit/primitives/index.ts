@@ -1,0 +1,28 @@
+/** Template-kit primitives — isolated snapshot of design-system building blocks. */
+
+export * from './utils/cn'
+export * from './utils/date-format'
+export * from './utils/format-accounting'
+export * from './tokens/layout'
+export * from './types/pagination'
+export * from './hooks/use-table-column-visibility'
+
+export * from './components/Button'
+export * from './components/Input'
+export * from './components/SearchField'
+export * from './components/FieldLabel'
+export * from './components/table-styles'
+export * from './components/DataTableColumnHeader'
+export * from './components/StickyDataTable'
+export * from './components/DataTableEmptyState'
+export * from './components/Pagination'
+export * from './components/TableColumnPicker'
+export * from './components/AccountingAmount'
+export * from './components/TripStageBadge'
+export * from './components/TripServiceStatusBadge'
+
+export * from './layout/Page'
+export * from './layout/PageHeader'
+export * from './layout/DataTableShell'
+export * from './layout/CrmPanel'
+export * from './layout/WorkspaceShell'

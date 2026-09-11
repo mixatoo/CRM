@@ -1,0 +1,30 @@
+import { cn } from '@/shared/utils/cn'
+import { layout } from '@/design-system/tokens/layout'
+
+export function Skeleton({ className }: { className?: string }) {
+  return <div className={cn('skeleton', className)} />
+}
+
+export function TableSkeleton({ rows = 5, cols = 4 }: { rows?: number; cols?: number }) {
+  return (
+    <div className="space-y-2">
+      {Array.from({ length: rows }).map((_, i) => (
+        <div key={i} className="flex gap-4">
+          {Array.from({ length: cols }).map((_, j) => (
+            <Skeleton key={j} className="h-10 flex-1" />
+          ))}
+        </div>
+      ))}
+    </div>
+  )
+}
+
+export function CardSkeleton() {
+  return (
+    <div className={cn('rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)]', layout.cardPad)}>
+      <Skeleton className="mb-4 h-4 w-1/3" />
+      <Skeleton className="mb-2 h-8 w-1/2" />
+      <Skeleton className="h-4 w-2/3" />
+    </div>
+  )
+}

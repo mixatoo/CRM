@@ -72,10 +72,13 @@ export const TravelersPage = lazyPage(
   'TravelersPage',
 )
 
-export const TravelerProfilePage = lazyPage(
-  () => import('@/features/travelers/pages/TravelerProfilePage'),
-  'TravelerProfilePage',
+export const TravelerWorkspacePage = lazyPage(
+  () => import('@/features/travelers/pages/TravelerWorkspacePage'),
+  'TravelerWorkspacePage',
 )
+
+/** @deprecated Prefer TravelerWorkspacePage */
+export const TravelerProfilePage = TravelerWorkspacePage
 
 export const ClientWorkspacePage = lazyPage(
   () => import('@/features/clients/pages/ClientWorkspacePage'),
@@ -85,6 +88,16 @@ export const ClientWorkspacePage = lazyPage(
 export const SupplierWorkspacePage = lazyPage(
   () => import('@/features/suppliers/pages/SupplierWorkspacePage'),
   'SupplierWorkspacePage',
+)
+
+export const TransfersPage = lazyPage(
+  () => import('@/features/transfers/pages/TransfersPage'),
+  'TransfersPage',
+)
+
+export const TransferWorkspacePage = lazyPage(
+  () => import('@/features/transfers/pages/TransferWorkspacePage'),
+  'TransferWorkspacePage',
 )
 
 export const TripWorkspacePage = lazyPage(

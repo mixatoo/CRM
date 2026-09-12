@@ -13,6 +13,7 @@ import type { PaymentTerm } from '@/domain/entities/payment-term'
 import type { ClientCreditCard } from '@/domain/entities/client-credit-card'
 import type { ClientServiceFee } from '@/domain/entities/client-service-fee'
 import type { Traveler } from '@/domain/entities/traveler'
+import type { Transfer } from '@/domain/entities/transfer'
 import type { Label, LabelAssignment } from '@/domain/entities/label'
 
 export class EgyliereDatabase extends Dexie {
@@ -28,6 +29,7 @@ export class EgyliereDatabase extends Dexie {
   clientCreditCards!: EntityTable<ClientCreditCard, 'id'>
   clientServiceFees!: EntityTable<ClientServiceFee, 'id'>
   travelers!: EntityTable<Traveler, 'id'>
+  transfers!: EntityTable<Transfer, 'id'>
   suppliers!: EntityTable<Supplier, 'id'>
   reminders!: EntityTable<Reminder, 'id'>
   tripItineraryNotes!: EntityTable<TripItineraryNote, 'id'>
@@ -480,6 +482,33 @@ export class EgyliereDatabase extends Dexie {
           }
         }
       })
+
+    this.version(25).stores({
+      users: 'id, email, role, isActive',
+      settings: 'id',
+      trips: 'id, reference, stage, ownerId, clientId, createdAt, updatedAt',
+      tripServices: 'id, tripId, supplierId, [tripId+lineNumber], category, status, lineNumber',
+      invoices: 'id, tripId, status, number, issuedAt, [tripId+number]',
+      tripPayments:
+        'id, tripId, clientId, invoiceId, direction, status, paidAt, [tripId+paidAt], [clientId+paidAt]',
+      paymentAllocations: 'id, paymentId, invoiceId, [paymentId+invoiceId]',
+      tripActivities: 'id, tripId, type, createdAt, [tripId+createdAt]',
+      clients:
+        'id, reference, status, type, email, displayName, paymentTermId, acquisitionSource, acquisitionChannel, accountManagerId, joinedAt, createdAt, updatedAt',
+      clientCreditCards:
+        'id, clientId, last4, expYear, isActive, brand, createdAt, updatedAt, [clientId+isActive]',
+      clientServiceFees: 'id, clientId, category, feeType, serviceName, createdAt, updatedAt, [clientId+serviceName]',
+      travelers:
+        'id, reference, accountId, status, email, lastName, firstName, createdAt, updatedAt, [accountId+lastName]',
+      transfers: 'id, reference, stage, kind, tripId, supplierId, serviceDate, createdAt, updatedAt',
+      suppliers: 'id, reference, status, category, email, displayName, createdAt, updatedAt',
+      reminders: 'id, reference, status, priority, category, dueAt, tripId, assigneeName, createdAt, updatedAt',
+      tripItineraryNotes: 'id, tripId, dayKey, sortOrder, [tripId+dayKey], createdAt',
+      paymentTerms: 'id, name, days, isActive, createdAt, updatedAt',
+      labels: 'id, name, slug, color, isActive, createdAt, updatedAt',
+      labelAssignments:
+        'id, labelId, targetType, targetId, createdAt, [targetType+targetId], [labelId+targetType], [targetType+targetId+labelId]',
+    })
   }
 }
 

@@ -26,6 +26,9 @@ export function HeaderCreateMenu() {
           <DropdownMenu.Item className={topBarMenuItemClass} onSelect={() => navigate('/trips?create=1')}>
             New trip
           </DropdownMenu.Item>
+          <DropdownMenu.Item className={topBarMenuItemClass} onSelect={() => navigate('/transfers?create=1')}>
+            New transfer
+          </DropdownMenu.Item>
           <DropdownMenu.Item className={topBarMenuItemClass} onSelect={() => navigate('/clients?quickAdd=1')}>
             {CRM_LABELS.quickAddAccount}
           </DropdownMenu.Item>

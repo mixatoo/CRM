@@ -23,7 +23,7 @@ export function WorkspaceShowcase() {
 
       <TemplateSection
         title="Pipeline progress"
-        description="Single compact segmented bar for all trip stages including Closed and Lost."
+        description="Mission-style workflow pipeline with stage jump menu, tick rail, Back/Next, and Closed outcomes."
         path="src/features/trips/components/workspace/TripProgressBar.tsx"
       >
         <TripProgressBar stage={stage} onStageChange={setStage} />

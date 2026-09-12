@@ -25,6 +25,7 @@ export const sidebarItems: NavItem[] = [
   { id: 'clients', to: '/clients', label: 'Accounts', resource: 'passenger', action: 'read', group: 'workspace' },
   { id: 'travelers', to: '/travelers', label: 'Travelers', resource: 'passenger', action: 'read', group: 'workspace' },
   { id: 'trips', to: '/trips', label: 'Trips', resource: 'order', action: 'read', group: 'workspace' },
+  { id: 'transfers', to: '/transfers', label: 'Transfers', resource: 'order', action: 'read', group: 'workspace' },
   { id: 'pipeline', to: '/pipeline', label: 'Pipeline', resource: 'order', action: 'read', group: 'workspace' },
   { id: 'search', to: '/search', label: 'Search', resource: 'settings', action: 'read', group: 'workspace' },
   { id: 'calendar', to: '/calendar', label: 'Calendar', resource: 'settings', action: 'read', group: 'workspace' },

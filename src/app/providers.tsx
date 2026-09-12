@@ -8,6 +8,7 @@ import { ensureClientsDirectory } from '@/infrastructure/database/client-seed'
 import { ensureClientOperationalSeed } from '@/infrastructure/database/client-operational-seed'
 import { ensureShowcaseClientSeed } from '@/infrastructure/database/showcase-client-seed'
 import { ensureSuppliersDirectory } from '@/infrastructure/database/supplier-seed'
+import { ensureTransfersDirectory } from '@/infrastructure/database/transfer-seed'
 import { ensureFinanceSeed } from '@/infrastructure/database/finance-seed'
 import { ensureRemindersDirectory } from '@/infrastructure/database/reminder-seed'
 import { ensureActivitySeed } from '@/infrastructure/database/activity-seed'
@@ -43,6 +44,7 @@ async function bootstrapDirectoryData() {
     ensureShowcaseClientSeed(),
     ensureTripServices(),
     ensureSuppliersDirectory(),
+    ensureTransfersDirectory(),
     ensureFinanceSeed(),
     ensureRemindersDirectory(),
     ensureActivitySeed(),

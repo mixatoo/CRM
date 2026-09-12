@@ -27,6 +27,7 @@ export interface AppSettings {
   tripsMockVersion?: number
   clientsDirectoryVersion?: number
   suppliersDirectoryVersion?: number
+  transfersDirectoryVersion?: number
   financeSeedVersion?: number
   remindersDirectoryVersion?: number
   activitySeedVersion?: number
@@ -51,3 +52,4 @@ export * from './label'
 export * from './client-credit-card'
 export * from './client-service-fee'
 export * from './traveler'
+export * from './transfer'

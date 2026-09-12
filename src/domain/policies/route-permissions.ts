@@ -20,6 +20,7 @@ export function getRoutePermission(pathname: string): RoutePermission | null {
   if (path.startsWith('/clients')) return { resource: 'passenger', action: 'read' }
   if (path.startsWith('/travelers')) return { resource: 'passenger', action: 'read' }
   if (path.startsWith('/suppliers')) return { resource: 'directory', action: 'read' }
+  if (path.startsWith('/transfers')) return { resource: 'order', action: 'read' }
   if (path.startsWith('/modules/clients')) return { resource: 'passenger', action: 'read' }
   if (path.startsWith('/modules/suppliers')) return { resource: 'directory', action: 'read' }
   if (path.startsWith('/transactions')) return { resource: 'payment', action: 'read' }

@@ -5,6 +5,7 @@ import {
   UserRound,
   Users,
   Building2,
+  CarFront,
   Calendar,
   CalendarDays,
   Activity,
@@ -32,6 +33,7 @@ const ICON_SLOT = 'flex h-9 w-[var(--sidebar-icon-slot)] shrink-0 items-center j
 const iconMap: Record<string, typeof LayoutDashboard> = {
   dashboard: LayoutDashboard,
   trips: MapPin,
+  transfers: CarFront,
   pipeline: Kanban,
   search: Search,
   calendar: CalendarDays,
@@ -49,6 +51,7 @@ const iconMap: Record<string, typeof LayoutDashboard> = {
 
 function isItemActive(pathname: string, to: string, id: string, end?: boolean) {
   if (id === 'trips') return pathname.startsWith('/trips')
+  if (id === 'transfers') return pathname.startsWith('/transfers')
   if (id === 'dashboard') return pathname === '/'
   if (end) return pathname === to
   return pathname === to || pathname.startsWith(`${to}/`)

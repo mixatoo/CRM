@@ -18,14 +18,13 @@ export function TripWorkspacePage() {
 
   if (!tripId) return <Navigate to="/trips" replace />
 
-  const progressSlot =
-    trip && activeTab === 'dashboard' ? (
-      <TripProgressBar
-        stage={trip.stage}
-        lastPipelineStage={trip.lastPipelineStage}
-        onStageChange={(nextStage) => updateTrip(tripStageChangePatch(trip, nextStage))}
-      />
-    ) : undefined
+  const progressSlot = trip ? (
+    <TripProgressBar
+      stage={trip.stage}
+      lastPipelineStage={trip.lastPipelineStage}
+      onStageChange={(nextStage) => updateTrip(tripStageChangePatch(trip, nextStage))}
+    />
+  ) : undefined
 
   return (
     <TripWorkspaceLayout

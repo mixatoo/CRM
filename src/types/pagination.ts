@@ -48,6 +48,8 @@ export const CLIENT_LINKED_TRIPS_PAGE_SIZE_STORAGE_KEY = 'egyliere.clients.linke
 
 export const SUPPLIERS_PAGE_SIZE_STORAGE_KEY = 'egyliere.suppliers.pageSize'
 
+export const TRANSFERS_PAGE_SIZE_STORAGE_KEY = 'egyliere.transfers.pageSize'
+
 export const TRANSACTIONS_PAGE_SIZE_STORAGE_KEY = 'egyliere.transactions.pageSize'
 
 export const REMINDERS_PAGE_SIZE_STORAGE_KEY = 'egyliere.reminders.pageSize'

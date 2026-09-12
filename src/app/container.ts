@@ -10,6 +10,7 @@ import { DexieClientCreditCardRepository } from '@/repositories/implementations/
 import { DexieClientServiceFeeRepository } from '@/repositories/implementations/client-service-fee-repository'
 import { DexieTravelerRepository } from '@/repositories/implementations/traveler-repository'
 import { DexieSupplierRepository } from '@/repositories/implementations/supplier-repository'
+import { DexieTransferRepository } from '@/repositories/implementations/transfer-repository'
 import { DexieReminderRepository } from '@/repositories/implementations/reminder-repository'
 import { DexieTripItineraryNoteRepository } from '@/repositories/implementations/trip-itinerary-note-repository'
 import { DexiePaymentTermRepository } from '@/repositories/implementations/payment-term-repository'
@@ -36,6 +37,7 @@ export function createUnitOfWork(): UnitOfWork {
     clientServiceFees: new DexieClientServiceFeeRepository(),
     travelers: new DexieTravelerRepository(),
     suppliers: new DexieSupplierRepository(),
+    transfers: new DexieTransferRepository(),
     reminders: new DexieReminderRepository(),
     tripItineraryNotes: new DexieTripItineraryNoteRepository(),
     paymentTerms: new DexiePaymentTermRepository(),

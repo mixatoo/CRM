@@ -13,6 +13,7 @@ import type { PaymentTerm } from '@/domain/entities/payment-term'
 import type { ClientCreditCard } from '@/domain/entities/client-credit-card'
 import type { ClientServiceFee } from '@/domain/entities/client-service-fee'
 import type { Traveler } from '@/domain/entities/traveler'
+import type { Transfer, TransferKind, TransferStage } from '@/domain/entities/transfer'
 import type { Label, LabelAssignment, LabelTargetType } from '@/domain/entities/label'
 
 export interface GenericRepository<T extends { id: string }> {
@@ -268,6 +269,30 @@ export interface SupplierRepository extends GenericRepository<Supplier> {
   countLinkedServices(supplierId: string): Promise<number>
 }
 
+export type TransferSortField =
+  | 'reference'
+  | 'serviceDate'
+  | 'kind'
+  | 'stage'
+  | 'pickupLocation'
+  | 'sellingPrice'
+  | 'updatedAt'
+export type TransferSortDir = 'asc' | 'desc'
+
+export interface TransferFilters {
+  search?: string
+  stage?: TransferStage | 'all'
+  kind?: TransferKind | 'all'
+  tripId?: string
+  supplierId?: string
+  sortBy?: TransferSortField
+  sortDir?: TransferSortDir
+}
+
+export interface TransferRepository extends GenericRepository<Transfer> {
+  findPaginated(filters?: TransferFilters, pagination?: PaginationParams): Promise<PaginatedResult<Transfer>>
+}
+
 export type ReminderSortField = 'reference' | 'title' | 'dueAt' | 'status' | 'priority' | 'updatedAt'
 export type ReminderSortDir = 'asc' | 'desc'
 
@@ -339,6 +364,7 @@ export interface UnitOfWork {
   clientServiceFees: ClientServiceFeeRepository
   travelers: TravelerRepository
   suppliers: SupplierRepository
+  transfers: TransferRepository
   reminders: ReminderRepository
   tripItineraryNotes: TripItineraryNoteRepository
   paymentTerms: PaymentTermRepository

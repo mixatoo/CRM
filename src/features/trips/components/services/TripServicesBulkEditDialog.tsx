@@ -81,8 +81,8 @@ export function TripServicesBulkEditDialog({
                 Cancel
               </Button>
             </Dialog.Close>
-            <Button variant="primary" size="sm" disabled={isPending} onClick={() => onApply(status)}>
-              Apply to all
+            <Button variant="primary" size="sm" loading={isPending} onClick={() => onApply(status)}>
+              {isPending ? 'Applying…' : 'Apply to all'}
             </Button>
           </div>
         </Dialog.Content>

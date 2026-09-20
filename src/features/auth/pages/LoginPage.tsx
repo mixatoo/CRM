@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -11,8 +11,15 @@ import { ForgotPasswordDialog } from '@/features/auth/components/ForgotPasswordD
 import { PasswordField } from '@/features/auth/components/PasswordField'
 import { RequestAccountDialog } from '@/features/auth/components/RequestAccountDialog'
 import { useAuthStore } from '@/features/auth/store/auth-store'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { cn } from '@/shared/utils/cn'
+
+function resolvePostLoginPath(from: unknown): string {
+  const loc = from as { pathname?: string; search?: string; hash?: string } | undefined
+  const pathname = loc?.pathname
+  if (!pathname || pathname === '/login') return '/'
+  return `${pathname}${loc.search ?? ''}${loc.hash ?? ''}`
+}
 
 const schema = z.object({
   email: z.string().email(),
@@ -27,7 +34,9 @@ const CAPABILITIES = [
 
 export function LoginPage() {
   const login = useAuthStore((s) => s.login)
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
   const navigate = useNavigate()
+  const location = useLocation()
   const [error, setError] = useState('')
   const [forgotOpen, setForgotOpen] = useState(false)
   const [requestOpen, setRequestOpen] = useState(false)
@@ -42,11 +51,17 @@ export function LoginPage() {
   })
 
   const emailValue = watch('email')
+  const returnTo = resolvePostLoginPath((location.state as { from?: unknown } | null)?.from)
+
+  useEffect(() => {
+    if (!isAuthenticated) return
+    navigate(returnTo, { replace: true })
+  }, [isAuthenticated, navigate, returnTo])
 
   const onSubmit = handleSubmit(async (data) => {
     setError('')
     const ok = await login(data.email, data.password)
-    if (ok) navigate('/')
+    if (ok) navigate(returnTo, { replace: true })
     else setError('Invalid email or password. Please try again.')
   })
 

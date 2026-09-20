@@ -80,10 +80,10 @@ export function TripsBulkEditDialog({
             <Button
               variant="primary"
               size="sm"
-              disabled={isPending}
+              loading={isPending}
               onClick={() => onApply(stage)}
             >
-              Apply to all
+              {isPending ? 'Applying…' : 'Apply to all'}
             </Button>
           </div>
         </Dialog.Content>

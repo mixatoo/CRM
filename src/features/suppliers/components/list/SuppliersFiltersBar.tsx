@@ -155,9 +155,15 @@ export function SuppliersFiltersBar({
             )}
 
             {canCreate ? (
-              <Button variant="primary" size="sm" className="h-8 shrink-0 gap-1.5" onClick={onCreate}>
+              <Button
+                variant="primary"
+                size="sm"
+                className="h-8 shrink-0 gap-1.5 px-2.5"
+                onClick={onCreate}
+                aria-label="New supplier"
+              >
                 <Plus className="h-3.5 w-3.5" />
-                New Supplier
+                <span className="hidden sm:inline">New Supplier</span>
               </Button>
             ) : null}
           </div>

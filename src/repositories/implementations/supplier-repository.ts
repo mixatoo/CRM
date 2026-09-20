@@ -15,8 +15,8 @@ import {
 
 function sortSuppliers(
   suppliers: Supplier[],
-  sortBy: SupplierSortField = 'displayName',
-  sortDir: SupplierSortDir = 'asc',
+  sortBy: SupplierSortField = 'reference',
+  sortDir: SupplierSortDir = 'desc',
 ) {
   const dir = sortDir === 'asc' ? 1 : -1
   return [...suppliers].sort((a, b) => {

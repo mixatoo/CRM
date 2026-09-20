@@ -11,7 +11,7 @@ import { createGenericRepository } from '@/repositories/implementations/dexie-re
 
 function sortTransfers(
   transfers: Transfer[],
-  sortBy: TransferSortField = 'updatedAt',
+  sortBy: TransferSortField = 'reference',
   sortDir: TransferSortDir = 'desc',
 ) {
   const dir = sortDir === 'asc' ? 1 : -1

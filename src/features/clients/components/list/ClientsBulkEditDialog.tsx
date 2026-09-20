@@ -113,6 +113,7 @@ export function ClientsBulkEditDialog({
             <Button
               variant="primary"
               size="sm"
+              loading={isPending}
               disabled={!canApply}
               onClick={() =>
                 onApply({
@@ -121,7 +122,7 @@ export function ClientsBulkEditDialog({
                 })
               }
             >
-              Apply to all
+              {isPending ? 'Applying…' : 'Apply to all'}
             </Button>
           </div>
         </Dialog.Content>

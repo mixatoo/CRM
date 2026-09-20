@@ -2,9 +2,11 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { appContainer } from '@/app/container'
 import type { Reminder } from '@/domain/entities/reminder'
 import { nextReminderReference } from '@/infrastructure/database/reminder-seed'
+import { useToast } from '@/design-system/components/Toast'
 
 export function useReminderMutations() {
   const queryClient = useQueryClient()
+  const { toast } = useToast()
 
   const invalidate = () => {
     void queryClient.invalidateQueries({ queryKey: ['reminders'] })
@@ -21,19 +23,37 @@ export function useReminderMutations() {
         updatedAt: now,
       })
     },
-    onSuccess: invalidate,
+    onSuccess: (reminder) => {
+      invalidate()
+      toast({ intent: 'updated', title: 'Reminder created', description: reminder.reference })
+    },
+    onError: (error: Error) => {
+      toast({ intent: 'failed', title: 'Could not create reminder', description: error.message })
+    },
   })
 
   const updateReminder = useMutation({
     mutationFn: async ({ id, patch }: { id: string; patch: Partial<Reminder> }) => {
       return appContainer.uow.reminders.update(id, { ...patch, updatedAt: new Date().toISOString() })
     },
-    onSuccess: invalidate,
+    onSuccess: (reminder) => {
+      invalidate()
+      toast({ intent: 'updated', title: 'Reminder updated', description: reminder?.reference })
+    },
+    onError: (error: Error) => {
+      toast({ intent: 'failed', title: 'Could not update reminder', description: error.message })
+    },
   })
 
   const deleteReminder = useMutation({
     mutationFn: (id: string) => appContainer.uow.reminders.delete(id),
-    onSuccess: invalidate,
+    onSuccess: () => {
+      invalidate()
+      toast({ intent: 'deleted', title: 'Reminder deleted' })
+    },
+    onError: (error: Error) => {
+      toast({ intent: 'failed', title: 'Could not delete reminder', description: error.message })
+    },
   })
 
   return {

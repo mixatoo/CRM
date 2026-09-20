@@ -255,7 +255,9 @@ export function Sidebar({ onNavigate, mobile = false }: SidebarProps) {
       className={cn(
         'flex h-full flex-col overflow-hidden bg-[var(--color-sidebar)] sidebar-motion transition-[width]',
         docked ? 'w-[var(--sidebar-collapsed-width)]' : 'w-[var(--sidebar-width)]',
-        mobile ? 'w-[var(--sidebar-width)]' : 'border-r border-[var(--color-sidebar-border)]',
+        mobile
+          ? 'w-[min(var(--sidebar-width),min(20rem,calc(100vw-2.5rem)))] shadow-2xl'
+          : 'border-r border-[var(--color-sidebar-border)]',
       )}
     >
       <div className="flex h-[3.75rem] shrink-0 items-center border-b border-[var(--color-sidebar-border)] bg-[var(--color-sidebar-elevated)] px-2">

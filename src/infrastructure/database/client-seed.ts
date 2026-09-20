@@ -18,10 +18,10 @@ import {
 } from '@/infrastructure/database/mocks/clients.mock'
 import { enrichClientFromSeed } from '@/infrastructure/database/complete-client-enrichment'
 import { generateId } from '@/shared/utils/cn'
+import { CLIENTS_DIRECTORY_VERSION } from '@/infrastructure/database/bootstrap-versions'
 
 export { SEED_CLIENTS, SEED_CLIENT_COUNT } from '@/infrastructure/database/mocks/clients.mock'
-
-export const CLIENTS_DIRECTORY_VERSION = 11
+export { CLIENTS_DIRECTORY_VERSION }
 
 function formatClientReference(sequence: number): string {
   return `CLT-${String(sequence).padStart(4, '0')}`

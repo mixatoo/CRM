@@ -162,9 +162,15 @@ export function TripsFiltersBar({
             <TripsSortMenu sortBy={sortBy} sortDir={sortDir} onSort={onSort} onSortDirChange={onSortDirChange} />
 
             {canCreate ? (
-              <Button variant="primary" size="sm" className="h-8 shrink-0 gap-1.5" onClick={() => onNewTrip?.()}>
+              <Button
+                variant="primary"
+                size="sm"
+                className="h-8 shrink-0 gap-1.5 px-2.5"
+                onClick={() => onNewTrip?.()}
+                aria-label="New trip"
+              >
                 <Plus className="h-3.5 w-3.5" />
-                New Trip
+                <span className="hidden sm:inline">New Trip</span>
               </Button>
             ) : null}
           </div>

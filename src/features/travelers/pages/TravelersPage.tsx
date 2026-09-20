@@ -27,8 +27,8 @@ export function TravelersPage() {
   const navigate = useNavigate()
 
   const [searchInput, setSearchInput] = useState('')
-  const [sortBy, setSortBy] = useState<TravelerSortField>('name')
-  const [sortDir, setSortDir] = useState<TravelerSortDir>('asc')
+  const [sortBy, setSortBy] = useState<TravelerSortField>('reference')
+  const [sortDir, setSortDir] = useState<TravelerSortDir>('desc')
   const [formOpen, setFormOpen] = useState(false)
   const [editingTraveler, setEditingTraveler] = useState<Traveler | null>(null)
 

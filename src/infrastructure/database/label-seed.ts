@@ -6,8 +6,9 @@ import {
   type LabelAssignment,
 } from '@/domain/entities/label'
 import { generateId } from '@/shared/utils/cn'
+import { LABELS_DIRECTORY_VERSION } from '@/infrastructure/database/bootstrap-versions'
 
-export const LABELS_DIRECTORY_VERSION = 1
+export { LABELS_DIRECTORY_VERSION }
 
 function buildDefaultLabel(
   seed: (typeof DEFAULT_LABELS)[number],

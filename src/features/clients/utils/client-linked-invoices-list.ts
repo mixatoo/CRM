@@ -50,7 +50,9 @@ export function sortClientLinkedInvoices(
       const cmp = leftValue - rightValue
       if (cmp !== 0) return cmp * dir
     } else {
-      const cmp = String(leftValue).localeCompare(String(rightValue))
+      const cmp = String(leftValue).localeCompare(String(rightValue), undefined, {
+        numeric: sortBy === 'invoice',
+      })
       if (cmp !== 0) return cmp * dir
     }
 

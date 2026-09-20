@@ -42,7 +42,7 @@ export function InvoicesPage() {
   const search = useDebouncedValue(searchInput, 300)
   const { page, pageSize, setPage, setPageSize, resetPage } = usePagination({ persistKey: INVOICES_PAGE_SIZE_STORAGE_KEY })
 
-  const filters: InvoiceFilters = { search, status, aging, labelIds, sortBy: 'issuedAt', sortDir: 'desc' }
+  const filters: InvoiceFilters = { search, status, aging, labelIds, sortBy: 'number', sortDir: 'desc' }
   const { data: result, isLoading, isFetching } = useInvoicesList(filters, page, pageSize)
   const { data: summary, isLoading: summaryLoading } = useInvoicesSummary()
   const invoices = result?.items ?? []

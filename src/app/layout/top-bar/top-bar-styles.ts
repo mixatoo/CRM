@@ -1,17 +1,18 @@
 export const topBarShellClass =
   'relative sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-surface)]/90 backdrop-blur-md'
 
-export const topBarRowClass = 'flex h-[var(--topbar-height)] min-w-0 items-center gap-2 px-2 sm:px-3 lg:px-4'
+export const topBarRowClass =
+  'flex h-[var(--topbar-height)] min-w-0 items-center gap-1.5 px-2 sm:gap-2 sm:px-3 lg:px-4'
 
-/** Middle zone — grows to fill space between brand and search/actions. */
+/** Middle zone — grows to fill space between brand and search/actions (visible on all breakpoints). */
 export const topBarContextSlotClass =
-  'hidden min-h-8 min-w-0 flex-1 items-stretch overflow-hidden md:flex'
+  'flex min-h-8 min-w-0 flex-1 items-stretch overflow-hidden'
 
 export const topBarSearchSlotClass =
   'hidden min-w-0 shrink-0 md:block md:w-[min(28vw,16rem)] lg:w-[18rem] xl:w-[20rem]'
 
 export const topBarRightClusterClass =
-  'flex shrink-0 items-center gap-1.5 sm:gap-2'
+  'flex shrink-0 items-center gap-1 sm:gap-1.5 md:gap-2'
 
 export const topBarMenuItemClass =
   'flex cursor-pointer items-center gap-2 rounded-[var(--radius-md)] px-2.5 py-2 text-xs font-normal text-[var(--color-foreground)] outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-40 data-[highlighted]:bg-[var(--color-surface-muted)]'

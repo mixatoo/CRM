@@ -47,8 +47,8 @@ export function RemindersPage() {
   const [category, setCategory] = useState<ReminderCategory | 'all'>('all')
   const [labelIds, setLabelIds] = useState<string[]>([])
   useLabelIdsSearchParam(setLabelIds)
-  const [sortBy] = useState<ReminderSortField>('dueAt')
-  const [sortDir] = useState<ReminderSortDir>('asc')
+  const [sortBy] = useState<ReminderSortField>('reference')
+  const [sortDir] = useState<ReminderSortDir>('desc')
   const [formOpen, setFormOpen] = useState(false)
   const [editingReminder, setEditingReminder] = useState<Reminder | null>(null)
 

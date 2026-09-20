@@ -38,7 +38,7 @@ function TripTabPill({
   return (
     <div
       className={cn(
-        'group/pill flex h-7 min-w-0 max-w-[11rem] shrink-0 items-center rounded-full border pl-2.5 text-[11px] leading-none sm:max-w-[13rem] lg:max-w-[15rem]',
+        'group/pill flex h-7 min-w-0 max-w-[9.5rem] shrink-0 items-center rounded-full border pl-2 text-[11px] leading-none sm:max-w-[13rem] sm:pl-2.5 lg:max-w-[15rem]',
         isActive
           ? 'border-[var(--color-accent)]/40 bg-[var(--color-accent-muted)]/50 text-[var(--color-foreground)]'
           : 'border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-muted)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-foreground)]',
@@ -56,7 +56,8 @@ function TripTabPill({
         size="xs"
         className={cn(
           'mr-0.5',
-          !isActive && 'opacity-0 group-hover/pill:opacity-100 focus-visible:opacity-100',
+          !isActive &&
+            'opacity-100 sm:opacity-0 sm:group-hover/pill:opacity-100 sm:focus-visible:opacity-100',
         )}
         aria-label={`Close ${reference}`}
         onClick={(event) => {
@@ -85,7 +86,7 @@ function ClientTabPill({
   return (
     <div
       className={cn(
-        'group/pill flex h-7 min-w-0 max-w-[11rem] shrink-0 items-center rounded-full border pl-2.5 text-[11px] leading-none sm:max-w-[13rem] lg:max-w-[15rem]',
+        'group/pill flex h-7 min-w-0 max-w-[9.5rem] shrink-0 items-center rounded-full border pl-2 text-[11px] leading-none sm:max-w-[13rem] sm:pl-2.5 lg:max-w-[15rem]',
         isActive
           ? 'border-[var(--color-accent)]/40 bg-[var(--color-accent-muted)]/50 text-[var(--color-foreground)]'
           : 'border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-muted)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-foreground)]',
@@ -103,7 +104,8 @@ function ClientTabPill({
         size="xs"
         className={cn(
           'mr-0.5',
-          !isActive && 'opacity-0 group-hover/pill:opacity-100 focus-visible:opacity-100',
+          !isActive &&
+            'opacity-100 sm:opacity-0 sm:group-hover/pill:opacity-100 sm:focus-visible:opacity-100',
         )}
         aria-label={`Close ${reference}`}
         onClick={(event) => {
@@ -132,7 +134,7 @@ function SupplierTabPill({
   return (
     <div
       className={cn(
-        'group/pill flex h-7 min-w-0 max-w-[11rem] shrink-0 items-center rounded-full border pl-2.5 text-[11px] leading-none sm:max-w-[13rem] lg:max-w-[15rem]',
+        'group/pill flex h-7 min-w-0 max-w-[9.5rem] shrink-0 items-center rounded-full border pl-2 text-[11px] leading-none sm:max-w-[13rem] sm:pl-2.5 lg:max-w-[15rem]',
         isActive
           ? 'border-[var(--color-accent)]/40 bg-[var(--color-accent-muted)]/50 text-[var(--color-foreground)]'
           : 'border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-muted)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-foreground)]',
@@ -150,7 +152,8 @@ function SupplierTabPill({
         size="xs"
         className={cn(
           'mr-0.5',
-          !isActive && 'opacity-0 group-hover/pill:opacity-100 focus-visible:opacity-100',
+          !isActive &&
+            'opacity-100 sm:opacity-0 sm:group-hover/pill:opacity-100 sm:focus-visible:opacity-100',
         )}
         aria-label={`Close ${reference}`}
         onClick={(event) => {
@@ -163,7 +166,7 @@ function SupplierTabPill({
   )
 }
 
-export function HeaderContextZone() {
+export function HeaderContextZone({ className }: { className?: string }) {
   const { tripId: activeTripId, clientId: activeClientId, supplierId: activeSupplierId } = useParams()
   const tripTabs = useTripTabsStore((state) => state.tabs)
   const clientTabs = useClientTabsStore((state) => state.tabs)
@@ -180,7 +183,7 @@ export function HeaderContextZone() {
   }
 
   return (
-    <div className={topBarContextSlotClass}>
+    <div className={cn(topBarContextSlotClass, className)}>
       <div
         className="flex w-full min-w-0 items-center rounded-[var(--radius-md)] bg-[var(--color-surface-muted)]/35"
         role={hasTabs ? 'tablist' : undefined}

@@ -3,8 +3,9 @@ import {
   DEFAULT_PAYMENT_TERMS,
   type PaymentTerm,
 } from '@/domain/entities/payment-term'
+import { PAYMENT_TERMS_DIRECTORY_VERSION } from '@/infrastructure/database/bootstrap-versions'
 
-export const PAYMENT_TERMS_DIRECTORY_VERSION = 1
+export { PAYMENT_TERMS_DIRECTORY_VERSION }
 
 const LEGACY_PAYMENT_TERM_LABEL_TO_DAYS: Record<string, number> = {
   'due on receipt': 0,

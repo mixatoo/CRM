@@ -20,8 +20,9 @@ import {
   deriveFlightServiceSummary,
 } from '@/domain/flight/ticket'
 import { migrateFlightServiceDetails, type LegacyFlightServiceDetailsInput } from '@/domain/flight/migration'
+import { TRIP_SERVICES_MOCK_VERSION } from '@/infrastructure/database/bootstrap-versions'
 
-export const TRIP_SERVICES_MOCK_VERSION = 19
+export { TRIP_SERVICES_MOCK_VERSION }
 
 export const DEMO_TRIP_ID = 'TRP-504567'
 

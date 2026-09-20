@@ -1,8 +1,9 @@
 import { db } from '@/infrastructure/database/db'
 import type { TripActivityType } from '@/domain/entities/trip-activity'
 import { generateId } from '@/shared/utils/cn'
+import { ACTIVITY_SEED_VERSION } from '@/infrastructure/database/bootstrap-versions'
 
-export const ACTIVITY_SEED_VERSION = 1
+export { ACTIVITY_SEED_VERSION }
 
 const SEED_ACTIONS: Array<{
   type: TripActivityType

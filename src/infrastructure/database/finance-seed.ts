@@ -1,8 +1,9 @@
 import { db } from '@/infrastructure/database/db'
 import type { TripPayment } from '@/domain/entities/trip-payment'
 import { generateId } from '@/shared/utils/cn'
+import { FINANCE_SEED_VERSION } from '@/infrastructure/database/bootstrap-versions'
 
-export const FINANCE_SEED_VERSION = 2
+export { FINANCE_SEED_VERSION }
 
 function daysAgo(days: number): string {
   const date = new Date()

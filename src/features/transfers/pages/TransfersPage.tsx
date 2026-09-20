@@ -48,7 +48,7 @@ export function TransfersPage() {
   })
 
   const filters: TransferFilters = useMemo(
-    () => ({ search, stage, sortBy: 'updatedAt', sortDir: 'desc' }),
+    () => ({ search, stage, sortBy: 'reference', sortDir: 'desc' }),
     [search, stage],
   )
   const { data: result, isLoading, isFetching } = useTransfersList(filters, page, pageSize)

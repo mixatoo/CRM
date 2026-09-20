@@ -17,7 +17,7 @@ interface ClientTripsTabProps {
 }
 
 export function ClientTripsTab({ client }: ClientTripsTabProps) {
-  const [sortBy, setSortBy] = useState<TripSortField>('date')
+  const [sortBy, setSortBy] = useState<TripSortField>('reference')
   const [sortDir, setSortDir] = useState<TripSortDir>('desc')
   const { page, pageSize, setPage, setPageSize, resetPage } = usePagination({
     persistKey: CLIENTS_PAGE_SIZE_STORAGE_KEY,

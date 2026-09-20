@@ -29,8 +29,8 @@ export function ClientTravelersTab({ client }: ClientTravelersTabProps) {
   const canDelete = canMutate(role, 'passenger', 'delete')
 
   const [search, setSearch] = useState('')
-  const [sortBy, setSortBy] = useState<ClientTravelerSortField>('name')
-  const [sortDir, setSortDir] = useState<ClientTravelerSortDir>('asc')
+  const [sortBy, setSortBy] = useState<ClientTravelerSortField>('reference')
+  const [sortDir, setSortDir] = useState<ClientTravelerSortDir>('desc')
   const [formOpen, setFormOpen] = useState(false)
   const [editingTraveler, setEditingTraveler] = useState<Traveler | null>(null)
 

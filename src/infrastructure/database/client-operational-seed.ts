@@ -5,8 +5,9 @@ import type { Client } from '@/domain/entities/client'
 import { clientPrimaryLabel } from '@/domain/entities/client'
 import { contactNameForClient } from '@/infrastructure/database/complete-client-enrichment'
 import { ACCOUNT_MANAGER_NAMES } from '@/infrastructure/database/seed'
+import { CLIENT_OPERATIONAL_SEED_VERSION } from '@/infrastructure/database/bootstrap-versions'
 
-export const CLIENT_OPERATIONAL_SEED_VERSION = 1
+export { CLIENT_OPERATIONAL_SEED_VERSION }
 
 const EMPTY_BREAKDOWN: ServiceCategoryCounts[] = SERVICE_CATEGORIES.map((category) => ({
   category,

@@ -31,7 +31,7 @@ export function invoiceAgingBucket(invoice: Pick<Invoice, 'status' | 'dueDate'>)
   return 'current'
 }
 
-function sortInvoices(invoices: Invoice[], sortBy: InvoiceSortField = 'issuedAt', sortDir: InvoiceSortDir = 'desc') {
+function sortInvoices(invoices: Invoice[], sortBy: InvoiceSortField = 'number', sortDir: InvoiceSortDir = 'desc') {
   const dir = sortDir === 'asc' ? 1 : -1
   return [...invoices].sort((a, b) => {
     let cmp = 0
@@ -46,7 +46,7 @@ function sortInvoices(invoices: Invoice[], sortBy: InvoiceSortField = 'issuedAt'
         cmp = a.total - b.total
         break
       case 'number':
-        cmp = a.number.localeCompare(b.number)
+        cmp = a.number.localeCompare(b.number, undefined, { numeric: true })
         break
       case 'status':
         cmp = a.status.localeCompare(b.status)

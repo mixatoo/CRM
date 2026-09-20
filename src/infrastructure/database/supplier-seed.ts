@@ -1,8 +1,9 @@
 import { db } from '@/infrastructure/database/db'
 import type { Supplier, SupplierCategory, SupplierStatus } from '@/domain/entities/supplier'
 import { generateId } from '@/shared/utils/cn'
+import { SUPPLIERS_DIRECTORY_VERSION } from '@/infrastructure/database/bootstrap-versions'
 
-export const SUPPLIERS_DIRECTORY_VERSION = 2
+export { SUPPLIERS_DIRECTORY_VERSION }
 
 export const SEED_SUPPLIERS: Array<{
   displayName: string

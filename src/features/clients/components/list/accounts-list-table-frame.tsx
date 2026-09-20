@@ -72,7 +72,7 @@ export function AccountsListTableFrame({
         className="flex min-h-0 flex-1 flex-col overflow-hidden bg-[var(--color-surface)]"
         style={stickyColStyle}
       >
-        <div className="flex min-h-0 flex-1 flex-col overflow-x-auto overflow-y-hidden">
+        <div className="flex min-h-0 flex-1 flex-col overflow-x-auto overflow-y-hidden overscroll-x-contain [-webkit-overflow-scrolling:touch]">
           <div className="shrink-0">
             <table className={cn(TABLE_BASE_CLASS, headerGridClassName ?? clientsTableHeaderGridClassName)}>
               {colgroup}

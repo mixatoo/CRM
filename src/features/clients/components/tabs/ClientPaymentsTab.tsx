@@ -26,7 +26,7 @@ export function ClientPaymentsTab({ client }: ClientPaymentsTabProps) {
   const role = useAuthStore((state) => state.user?.role ?? 'guest')
   const maskFinancials = shouldMaskFinancials(role)
   const canCreate = canMutate(role, 'payment', 'create')
-  const [sortBy, setSortBy] = useState<ClientLinkedPaymentSortField>('date')
+  const [sortBy, setSortBy] = useState<ClientLinkedPaymentSortField>('reference')
   const [sortDir, setSortDir] = useState<ClientLinkedPaymentSortDir>('desc')
   const [detailOpen, setDetailOpen] = useState(false)
   const [recordOpen, setRecordOpen] = useState(false)

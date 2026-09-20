@@ -18,9 +18,10 @@ export function TravelersCreateMenu({ onCreate, onQuickAdd, onImport }: Traveler
         size="sm"
         className="h-8 gap-1 rounded-r-none border-r border-white/20 px-2.5 text-xs shadow-none"
         onClick={onCreate}
+        aria-label={CRM_LABELS.addTraveler}
       >
         <Plus className="h-3.5 w-3.5" />
-        {CRM_LABELS.addTraveler}
+        <span className="hidden sm:inline">{CRM_LABELS.addTraveler}</span>
       </Button>
 
       <DropdownMenu.Root>

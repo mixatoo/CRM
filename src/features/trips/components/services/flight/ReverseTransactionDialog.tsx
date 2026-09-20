@@ -104,10 +104,11 @@ export function ReverseTransactionDialog({
               variant="danger"
               size="sm"
               className="min-w-[5.5rem]"
+              loading={isPending}
               disabled={!canConfirm}
               onClick={() => onConfirm(reason.trim())}
             >
-              {correcting ? 'Reverse & correct' : 'Reverse'}
+              {isPending ? 'Reversing…' : correcting ? 'Reverse & correct' : 'Reverse'}
             </Button>
           </footer>
         </AlertDialog.Content>

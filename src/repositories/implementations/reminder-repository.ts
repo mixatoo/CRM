@@ -15,8 +15,8 @@ import {
 
 function sortReminders(
   reminders: Reminder[],
-  sortBy: ReminderSortField = 'dueAt',
-  sortDir: ReminderSortDir = 'asc',
+  sortBy: ReminderSortField = 'reference',
+  sortDir: ReminderSortDir = 'desc',
 ) {
   const dir = sortDir === 'asc' ? 1 : -1
   return [...reminders].sort((a, b) => {

@@ -171,7 +171,7 @@ export function RecordPipeline({
                       selectStage(railId)
                     }}
                     className={cn(
-                      'relative flex min-w-[3.75rem] flex-1 flex-col items-center justify-center gap-0.5 rounded-[var(--radius-md)] border px-1.5 py-1.5 text-[10px] font-semibold tracking-wide uppercase transition-colors',
+                      'relative flex min-h-10 min-w-[3.25rem] flex-1 flex-col items-center justify-center gap-0.5 rounded-[var(--radius-md)] border px-1 py-1.5 text-[10px] font-semibold tracking-wide uppercase transition-colors sm:min-h-0 sm:min-w-[3.75rem] sm:px-1.5',
                       isCurrent && visual
                         ? cn('z-[1] shadow-sm', visual.shell, visual.text)
                         : null,
@@ -300,7 +300,7 @@ function JumpMenu({
           type="button"
           disabled={disabled}
           className={cn(
-            'flex w-full min-w-[10.5rem] flex-col gap-1 rounded-[var(--radius-md)] border px-2.5 py-2 text-left outline-none transition-colors lg:w-[12.5rem]',
+            'flex w-full min-w-0 flex-col gap-1 rounded-[var(--radius-md)] border px-2.5 py-2 text-left outline-none transition-colors sm:min-w-[10.5rem] lg:w-[12.5rem]',
             nowVisual
               ? cn(nowVisual.shell, nowVisual.text)
               : 'border-[var(--color-border)] bg-[var(--color-surface-muted)]/50 text-[var(--color-foreground)]',

@@ -38,18 +38,18 @@ export function TripWorkspaceToolbarMeta({ trip, isLoading, className }: TripWor
     return (
       <div className={cn(clientsToolbarWorkspaceMetaSlotClassName, className)} aria-hidden>
         <div className={tripWorkspaceToolbarMetaGridClassName}>
-          <div className={cn(tripWorkspaceToolbarCellClassName, tripWorkspaceToolbarIdentityCellClassName)}>
+          <div className={cn(tripWorkspaceToolbarCellClassName, tripWorkspaceToolbarIdentityCellClassName, 'order-1')}>
             <span className="h-3 w-full animate-pulse rounded-[var(--radius-sm)] bg-[var(--color-surface-muted)]" />
             <span className="h-2.5 w-2/3 animate-pulse rounded-[var(--radius-sm)] bg-[var(--color-surface-muted)]/80" />
           </div>
-          <div className={tripWorkspaceToolbarCellClassName}>
+          <div className={cn(tripWorkspaceToolbarLabelsCellClassName, 'sm:order-2')}>
             <span className="h-[1.375rem] w-14 animate-pulse rounded-[var(--radius-sm)] bg-[var(--color-surface-muted)]" />
           </div>
-          <div className={tripWorkspaceToolbarFinancialsCellClassName}>
+          <div className={cn(tripWorkspaceToolbarFinancialsCellClassName, 'order-3')}>
             <span className="h-3 w-16 animate-pulse rounded-[var(--radius-sm)] bg-[var(--color-surface-muted)]" />
             <span className="h-3 w-16 animate-pulse rounded-[var(--radius-sm)] bg-[var(--color-surface-muted)]" />
           </div>
-          <div className={cn(tripWorkspaceToolbarCellClassName, tripWorkspaceToolbarBadgesCellClassName)}>
+          <div className={cn(tripWorkspaceToolbarCellClassName, tripWorkspaceToolbarBadgesCellClassName, 'order-2 sm:order-4')}>
             <span className="h-6 w-16 animate-pulse rounded-[var(--radius-sm)] bg-[var(--color-surface-muted)]" />
           </div>
         </div>
@@ -60,7 +60,7 @@ export function TripWorkspaceToolbarMeta({ trip, isLoading, className }: TripWor
   return (
     <div className={cn(clientsToolbarWorkspaceMetaSlotClassName, className)}>
       <div className={tripWorkspaceToolbarMetaGridClassName}>
-        <div className={cn(tripWorkspaceToolbarCellClassName, tripWorkspaceToolbarIdentityCellClassName)}>
+        <div className={cn(tripWorkspaceToolbarCellClassName, tripWorkspaceToolbarIdentityCellClassName, 'order-1')}>
           <p
             className="w-full min-w-0 truncate text-[12px] font-semibold leading-tight tracking-[-0.01em] text-[var(--color-foreground)]"
             title={trip.name}
@@ -74,7 +74,7 @@ export function TripWorkspaceToolbarMeta({ trip, isLoading, className }: TripWor
           ) : null}
         </div>
 
-        <div className={tripWorkspaceToolbarLabelsCellClassName}>
+        <div className={cn(tripWorkspaceToolbarLabelsCellClassName, 'sm:order-2')}>
           <EntityLabelsField
             targetType="trip"
             targetId={trip.id}
@@ -86,12 +86,12 @@ export function TripWorkspaceToolbarMeta({ trip, isLoading, className }: TripWor
           />
         </div>
 
-        <div className={tripWorkspaceToolbarFinancialsCellClassName}>
+        <div className={cn(tripWorkspaceToolbarFinancialsCellClassName, 'order-3')}>
           <CompactAmount label="Cost" amount={trip.totalCost} currency={trip.currency} />
           <CompactAmount label="Sell" amount={tripTotalSelling(trip)} currency={trip.currency} />
         </div>
 
-        <div className={cn(tripWorkspaceToolbarCellClassName, tripWorkspaceToolbarBadgesCellClassName)}>
+        <div className={cn(tripWorkspaceToolbarCellClassName, tripWorkspaceToolbarBadgesCellClassName, 'order-2 sm:order-4')}>
           <TripStageBadge stage={trip.stage} className={TOOLBAR_BADGE_CLASS} />
         </div>
       </div>

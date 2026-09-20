@@ -2,8 +2,9 @@ import { db } from '@/infrastructure/database/db'
 import { tripTotalSelling, type Trip } from '@/domain/entities'
 import type { Invoice, InvoiceStatus } from '@/domain/entities/invoice'
 import { generateId } from '@/shared/utils/cn'
+import { INVOICE_SEED_VERSION } from '@/infrastructure/database/bootstrap-versions'
 
-export const INVOICE_SEED_VERSION = 2
+export { INVOICE_SEED_VERSION }
 
 const STATUS_CYCLE: InvoiceStatus[] = ['draft', 'pending', 'sent', 'paid', 'sent', 'pending', 'sent', 'paid']
 

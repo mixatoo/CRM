@@ -2,11 +2,13 @@ import { db } from './db'
 import type { User, AppSettings, Trip, ServiceCategoryCounts } from '@/domain/entities'
 import { SERVICE_CATEGORIES } from '@/domain/entities'
 import { DEMO_TRIP_ID } from '@/infrastructure/database/mocks/trip-services.mock'
+import { TRIPS_MOCK_VERSION } from '@/infrastructure/database/bootstrap-versions'
+
+export { TRIPS_MOCK_VERSION }
 
 const now = new Date().toISOString()
 
 export const MOCK_TRIP_COUNT = 10
-export const TRIPS_MOCK_VERSION = 1
 
 export const ACCOUNT_MANAGER_NAMES = [
   'Ibrahim Mahmoud',

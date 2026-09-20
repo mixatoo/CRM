@@ -24,10 +24,11 @@ import { contactNameForClient } from '@/infrastructure/database/complete-client-
 import { ACCOUNT_MANAGER_NAMES } from '@/infrastructure/database/seed'
 import { mockServicesForTrip } from '@/infrastructure/database/mocks/trip-services.mock'
 import { generateId } from '@/shared/utils/cn'
+import { SHOWCASE_CLIENT_SEED_VERSION } from '@/infrastructure/database/bootstrap-versions'
 
 export const SHOWCASE_CLIENT_REFERENCE = 'CLT-0179'
 /** v4 — traveler human-facing IDs (`TRV-xxxx`). */
-export const SHOWCASE_CLIENT_SEED_VERSION = 4
+export { SHOWCASE_CLIENT_SEED_VERSION }
 
 const PARTNER_SINCE = '2023-07-08'
 const OWNER_INDEX = 6

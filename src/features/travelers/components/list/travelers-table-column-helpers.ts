@@ -99,7 +99,7 @@ export type TravelerTableSortField =
 export function compareTravelersByField(left: Traveler, right: Traveler, field: TravelerTableSortField): number {
   switch (field) {
     case 'reference':
-      return left.reference.localeCompare(right.reference)
+      return left.reference.localeCompare(right.reference, undefined, { numeric: true })
     case 'name':
       return travelerDisplayName(left).localeCompare(travelerDisplayName(right))
     case 'role':

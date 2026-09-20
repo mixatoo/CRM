@@ -283,11 +283,16 @@ export function TripServicesAddDialog({
               variant="primary"
               size="sm"
               className="min-w-[5.5rem] gap-1.5"
-              disabled={isPending || !canSubmit}
+              loading={isPending}
+              disabled={!canSubmit}
               onClick={handleSubmit}
             >
-              <Plus className="h-3.5 w-3.5" />
-              Add service
+              {isPending ? 'Adding…' : (
+                <>
+                  <Plus className="h-3.5 w-3.5" />
+                  Add service
+                </>
+              )}
             </Button>
           </footer>
         </Dialog.Content>

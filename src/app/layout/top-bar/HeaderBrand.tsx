@@ -15,11 +15,11 @@ export function HeaderBrand({ onOpenMobileNav }: HeaderBrandProps) {
       <Button
         variant="ghost"
         size="icon"
-        className={cn(topBarIconButtonClass, 'lg:hidden')}
+        className={cn(topBarIconButtonClass, 'h-10 w-10 touch-manipulation lg:hidden')}
         onClick={onOpenMobileNav}
         aria-label="Open navigation menu"
       >
-        <Menu className="h-4 w-4" />
+        <Menu className="h-5 w-5" />
       </Button>
 
       <Link

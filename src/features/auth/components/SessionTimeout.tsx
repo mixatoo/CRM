@@ -1,5 +1,5 @@
-import { useEffect, useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useCallback, useRef } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '@/features/auth/store/auth-store'
 import { useQuery } from '@tanstack/react-query'
 import { appContainer } from '@/app/container'
@@ -9,6 +9,9 @@ const DEFAULT_TIMEOUT_MINUTES = 60
 
 export function SessionTimeout() {
   const navigate = useNavigate()
+  const location = useLocation()
+  const locationRef = useRef(location)
+  locationRef.current = location
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
   const logout = useAuthStore((s) => s.logout)
   const touchActivity = useAuthStore((s) => s.touchActivity)
@@ -29,7 +32,10 @@ export function SessionTimeout() {
     if (!last) return
     if (Date.now() - last >= timeoutMs) {
       logout()
-      navigate('/login', { replace: true, state: { reason: 'session_timeout' } })
+      navigate('/login', {
+        replace: true,
+        state: { reason: 'session_timeout', from: locationRef.current },
+      })
     }
   }, [timeoutMs, logout, navigate])
 

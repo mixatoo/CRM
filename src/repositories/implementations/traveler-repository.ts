@@ -24,8 +24,8 @@ function travelerSearchHaystack(traveler: Traveler, accountName: string): string
 
 function sortTravelers(
   travelers: TravelerListItem[],
-  sortBy: TravelerSortField = 'name',
-  sortDir: TravelerSortDir = 'asc',
+  sortBy: TravelerSortField = 'reference',
+  sortDir: TravelerSortDir = 'desc',
 ) {
   const dir = sortDir === 'asc' ? 1 : -1
   return [...travelers].sort((a, b) => {

@@ -50,13 +50,16 @@ export const useAuthStore = create<AuthState>()(
       logout: () => set({ user: null, isAuthenticated: false, lastActivityAt: null }),
       touchActivity: () => set({ lastActivityAt: Date.now() }),
     }),
-    { name: 'egyliere-auth',
+    {
+      name: 'egyliere-auth',
       merge: (persisted, current) => {
         const saved = persisted as Partial<AuthState>
+        const user = syncUserFromDemoAccounts(saved.user ?? null)
         return {
           ...current,
           ...saved,
-          user: syncUserFromDemoAccounts(saved.user ?? null),
+          user,
+          isAuthenticated: Boolean(user),
         }
       },
     },

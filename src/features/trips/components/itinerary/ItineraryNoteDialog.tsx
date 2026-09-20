@@ -95,8 +95,8 @@ export function ItineraryNoteDialog({
                 Cancel
               </Button>
             </Dialog.Close>
-            <Button size="sm" disabled={!canSubmit} onClick={handleSubmit}>
-              {note ? 'Save note' : 'Add note'}
+            <Button size="sm" loading={isPending} disabled={!canSubmit} onClick={handleSubmit}>
+              {isPending ? 'Saving…' : note ? 'Save note' : 'Add note'}
             </Button>
           </footer>
         </Dialog.Content>

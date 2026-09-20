@@ -37,6 +37,8 @@ export interface AppSettings {
   labelsDirectoryVersion?: number
   clientOperationalSeedVersion?: number
   showcaseClientSeedVersion?: number
+  /** Set after one-time warm migrations finish; skips heavy startup when current. */
+  warmBootstrapVersion?: number
 }
 
 export * from './client'

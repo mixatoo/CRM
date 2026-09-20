@@ -1,8 +1,9 @@
 import { db } from '@/infrastructure/database/db'
 import type { Reminder } from '@/domain/entities/reminder'
 import { generateId } from '@/shared/utils/cn'
+import { REMINDERS_DIRECTORY_VERSION } from '@/infrastructure/database/bootstrap-versions'
 
-export const REMINDERS_DIRECTORY_VERSION = 1
+export { REMINDERS_DIRECTORY_VERSION }
 
 export const SEED_REMINDERS: Array<{
   title: string

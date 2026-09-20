@@ -198,8 +198,8 @@ export function ReminderFormDialog({ open, onOpenChange, reminder }: ReminderFor
               <Button type="button" variant="ghost" onClick={() => onOpenChange(false)}>
                 Cancel
               </Button>
-              <Button type="submit" variant="primary" disabled={isPending}>
-                {reminder ? 'Save changes' : 'Create reminder'}
+              <Button type="submit" variant="primary" loading={isPending}>
+                {isPending ? 'Saving…' : reminder ? 'Save changes' : 'Create reminder'}
               </Button>
             </div>
           </form>

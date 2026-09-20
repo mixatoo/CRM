@@ -24,7 +24,7 @@ export const clientWorkspaceTabGroupDividerClassName =
 
 export function clientWorkspaceTabClassName(isActive: boolean) {
   return cn(
-    'group relative flex h-7 shrink-0 items-center gap-1.5 rounded-[calc(var(--radius-md)-3px)] px-2.5 text-[11px] font-medium leading-none tracking-[-0.01em] whitespace-nowrap transition-[color,background-color,box-shadow,transform] duration-200 ease-out sm:gap-2 sm:px-3 sm:text-xs',
+    'group relative flex min-h-9 shrink-0 items-center gap-1.5 rounded-[calc(var(--radius-md)-3px)] px-2.5 text-[11px] font-medium leading-none tracking-[-0.01em] whitespace-nowrap transition-[color,background-color,box-shadow,transform] duration-200 ease-out sm:h-7 sm:min-h-0 sm:gap-2 sm:px-3 sm:text-xs',
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]/25 focus-visible:ring-offset-1 focus-visible:ring-offset-[var(--color-surface-muted)]',
     isActive
       ? cn(

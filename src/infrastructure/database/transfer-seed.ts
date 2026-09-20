@@ -1,8 +1,9 @@
 import { db } from '@/infrastructure/database/db'
 import type { Transfer, TransferKind, TransferStage } from '@/domain/entities/transfer'
 import { generateId } from '@/shared/utils/cn'
+import { TRANSFERS_DIRECTORY_VERSION } from '@/infrastructure/database/bootstrap-versions'
 
-export const TRANSFERS_DIRECTORY_VERSION = 1
+export { TRANSFERS_DIRECTORY_VERSION }
 
 type SeedTransfer = {
   kind: TransferKind

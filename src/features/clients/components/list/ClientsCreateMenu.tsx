@@ -18,9 +18,10 @@ export function ClientsCreateMenu({ onCreate, onQuickAdd, onImport }: ClientsCre
         size="sm"
         className="h-8 gap-1 rounded-r-none border-r border-white/20 px-2.5 text-xs shadow-none"
         onClick={onCreate}
+        aria-label={CRM_LABELS.addAccount}
       >
         <Plus className="h-3.5 w-3.5" />
-        {CRM_LABELS.addAccount}
+        <span className="hidden sm:inline">{CRM_LABELS.addAccount}</span>
       </Button>
 
       <DropdownMenu.Root>

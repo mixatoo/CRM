@@ -25,26 +25,26 @@ export const tripWorkspaceProgressBandClassName =
   'border-t border-[var(--color-border)] bg-[var(--color-surface)] px-2 py-2 sm:px-4'
 
 export const tripWorkspaceToolbarMetaGridClassName =
-  'grid h-8 min-w-0 w-full grid-cols-1 divide-y divide-[var(--color-border)] sm:grid-cols-[minmax(0,26fr)_minmax(0,20fr)_minmax(0,22fr)_minmax(0,16fr)] sm:items-center sm:divide-x sm:divide-y-0'
+  'grid min-w-0 w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-x-2 gap-y-1.5 sm:h-8 sm:grid-cols-[minmax(0,26fr)_minmax(0,20fr)_minmax(0,22fr)_minmax(0,16fr)] sm:gap-0 sm:divide-x sm:divide-y-0 divide-[var(--color-border)]'
 
 export const tripWorkspaceToolbarCellClassName =
-  'flex h-8 min-w-0 items-center overflow-hidden sm:px-2'
+  'flex min-h-0 min-w-0 items-center overflow-hidden sm:h-8 sm:px-2'
 
 export const tripWorkspaceToolbarIdentityCellClassName =
-  'flex-col justify-center gap-px py-0'
+  'min-w-0 flex-col justify-center gap-px py-0'
 
 export const tripWorkspaceToolbarLabelsCellClassName =
-  'flex h-8 min-w-0 items-center sm:px-2'
+  'hidden min-w-0 items-center sm:flex sm:h-8 sm:px-2'
 
 export const tripWorkspaceToolbarFinancialsCellClassName =
-  'flex h-8 min-w-0 items-center justify-end gap-3 sm:px-2'
+  'col-span-2 flex min-h-0 min-w-0 items-center justify-start gap-3 sm:col-span-1 sm:h-8 sm:justify-end sm:px-2'
 
 export const tripWorkspaceToolbarBadgesCellClassName =
-  'flex min-w-0 items-center justify-end gap-1 sm:px-2'
+  'flex min-w-0 items-center justify-end gap-1 sm:h-8 sm:px-2'
 
 export function tripWorkspaceTabClassName(isActive: boolean) {
   return cn(
-    'group relative flex h-7 shrink-0 items-center gap-1.5 rounded-[calc(var(--radius-md)-3px)] px-2.5 text-[11px] font-medium leading-none tracking-[-0.01em] whitespace-nowrap transition-[color,background-color,box-shadow,transform] duration-200 ease-out sm:gap-2 sm:px-3 sm:text-xs',
+    'group relative flex min-h-9 shrink-0 items-center gap-1.5 rounded-[calc(var(--radius-md)-3px)] px-2.5 text-[11px] font-medium leading-none tracking-[-0.01em] whitespace-nowrap transition-[color,background-color,box-shadow,transform] duration-200 ease-out sm:h-7 sm:min-h-0 sm:gap-2 sm:px-3 sm:text-xs',
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]/25 focus-visible:ring-offset-1 focus-visible:ring-offset-[var(--color-surface-muted)]',
     isActive
       ? cn(

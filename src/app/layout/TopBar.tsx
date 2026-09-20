@@ -38,7 +38,7 @@ export function TopBar() {
       <div className={topBarRowClass}>
         <HeaderBrand onOpenMobileNav={() => setMobileSidebarOpen(true)} />
 
-        <HeaderContextZone />
+        <HeaderContextZone className={searchOpen ? 'max-md:invisible max-md:pointer-events-none' : undefined} />
 
         <div className={topBarRightClusterClass}>
           <HeaderGlobalSearch
@@ -46,9 +46,18 @@ export function TopBar() {
             onValueChange={setSearchInput}
             open={searchOpen}
             onOpenChange={setSearchOpen}
+            className={
+              searchOpen
+                ? 'absolute top-1/2 left-2 right-2 z-20 -translate-y-1/2 md:static md:inset-auto md:translate-y-0'
+                : undefined
+            }
           />
 
-          <HeaderActionsRail darkMode={darkMode} onToggleTheme={toggleDarkMode} />
+          <HeaderActionsRail
+            darkMode={darkMode}
+            onToggleTheme={toggleDarkMode}
+            className={searchOpen ? 'max-md:invisible max-md:pointer-events-none' : undefined}
+          />
         </div>
       </div>
     </header>

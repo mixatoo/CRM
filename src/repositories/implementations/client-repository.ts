@@ -11,8 +11,8 @@ import {
 
 function sortClients(
   clients: Client[],
-  sortBy: ClientSortField = 'displayName',
-  sortDir: ClientSortDir = 'asc',
+  sortBy: ClientSortField = 'reference',
+  sortDir: ClientSortDir = 'desc',
 ) {
   const dir = sortDir === 'asc' ? 1 : -1
   return [...clients].sort((a, b) => {
@@ -70,10 +70,11 @@ async function loadClientsForFilters(filters: ClientFilters): Promise<Client[]> 
     return db.clients.where('type').equals(filters.type).toArray()
   }
 
-  const sortBy = filters.sortBy ?? 'displayName'
+  const sortBy = filters.sortBy ?? 'reference'
+  const sortDir = filters.sortDir ?? 'desc'
   if (INDEXED_CLIENT_SORT_FIELDS.has(sortBy)) {
     const collection = db.clients.orderBy(sortBy)
-    return filters.sortDir === 'desc' ? collection.reverse().toArray() : collection.toArray()
+    return sortDir === 'desc' ? collection.reverse().toArray() : collection.toArray()
   }
 
   return db.clients.orderBy('updatedAt').reverse().toArray()

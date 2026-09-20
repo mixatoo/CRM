@@ -288,7 +288,7 @@ export function ClientModernDashboard({
   return (
     <div className="flex h-full min-h-0 flex-1 flex-col overflow-hidden bg-[var(--color-bg)] lg:flex-row">
       {/* Vital column */}
-      <aside className="flex max-h-[min(70dvh,28rem)] min-h-0 w-full shrink-0 flex-col overflow-hidden border-b border-[var(--color-border)] bg-[var(--color-surface)] lg:h-full lg:max-h-none lg:w-[300px] lg:min-w-[280px] lg:max-w-[320px] lg:border-b-0 lg:border-r">
+      <aside className="flex max-h-[min(42dvh,16rem)] min-h-0 w-full shrink-0 flex-col overflow-hidden border-b border-[var(--color-border)] bg-[var(--color-surface)] sm:max-h-[min(50dvh,20rem)] lg:h-full lg:max-h-none lg:w-[300px] lg:min-w-[280px] lg:max-w-[320px] lg:border-b-0 lg:border-r">
         <VitalBoard
           data={vital}
           mode={vitalMode}

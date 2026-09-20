@@ -34,17 +34,17 @@ export function PipelinePage() {
       />
 
       {isLoading ? (
-        <div className="flex gap-3 overflow-x-auto pb-4">
+        <div className="-mx-1 flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain px-1 pb-4 sm:mx-0 sm:snap-none sm:px-0">
           {Array.from({ length: 4 }).map((_, i) => (
-            <Skeleton key={i} className="h-80 w-72 shrink-0" />
+            <Skeleton key={i} className="h-80 w-[min(17.5rem,calc(100vw-2.75rem))] shrink-0 snap-center sm:w-72" />
           ))}
         </div>
       ) : (
-        <div className="flex gap-3 overflow-x-auto pb-4">
+        <div className="-mx-1 flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain px-1 pb-4 sm:mx-0 sm:snap-none sm:px-0">
           {data?.columns.map((column) => (
             <section
               key={column.stage}
-              className="flex w-72 shrink-0 flex-col rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-muted)]/30"
+              className="flex w-[min(17.5rem,calc(100vw-2.75rem))] shrink-0 snap-center flex-col rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-muted)]/30 sm:w-72 sm:snap-align-none"
             >
               <header className="border-b border-[var(--color-border)] px-3 py-2.5">
                 <div className="mb-1 flex items-center justify-between gap-2">

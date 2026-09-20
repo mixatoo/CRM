@@ -23,7 +23,7 @@ interface ClientInvoicesTabProps {
 export function ClientInvoicesTab({ client }: ClientInvoicesTabProps) {
   const role = useAuthStore((state) => state.user?.role ?? 'guest')
   const maskFinancials = shouldMaskFinancials(role)
-  const [sortBy, setSortBy] = useState<ClientLinkedInvoiceSortField>('issued')
+  const [sortBy, setSortBy] = useState<ClientLinkedInvoiceSortField>('invoice')
   const [sortDir, setSortDir] = useState<ClientLinkedInvoiceSortDir>('desc')
   const [detailOpen, setDetailOpen] = useState(false)
   const [selectedInvoice, setSelectedInvoice] = useState<Invoice | null>(null)
